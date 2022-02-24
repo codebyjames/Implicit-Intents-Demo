@@ -22,11 +22,12 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/ivPhoto"
+        android:id="@+id/ivSelectedImage"
         android:layout_marginTop="10dp"
-        android:layout_width="270dp"
-        android:layout_height="480dp"
-        android:scaleType="centerCrop"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="0dp"
+        android:layout_height="450dp"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,6 +42,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPhoto" />
+        app:layout_constraintTop_toBottomOf="@+id/ivSelectedImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

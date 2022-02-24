@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+
         binding.btnTakePhoto.setOnClickListener {
             Intent(Intent.ACTION_GET_CONTENT).also {
                 // mime type any images -- image/jpg only looks for particular
@@ -58,17 +61,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Deprecated way
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_PHOTO) {
-            val uri = data?.data
-            uri?.let {
-                setImage(it)
-            }
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_PHOTO) {
+//            val uri = data?.data
+//            uri?.let {
+//                setImage(it)
+//            }
+//        }
+//    }
 
     private fun setImage(uri: Uri) {
-        binding.ivPhoto.setImageURI(uri)
+        binding.ivSelectedImage.setImageURI(uri)
     }
 }
