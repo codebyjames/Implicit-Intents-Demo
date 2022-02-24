@@ -8,8 +8,10 @@ This Demo is to showcase how to replace the deprecated startActivityForResult() 
 EXAMPLE BELOW : DIFFERENCE BETWEEN THE TWO
 
 // use this intent as an example
+```
 val intent = Intent(Intent.ACTION_GET_CONTENT)
 intent.type = "image/*"
+```
 
 START ACTIVITY FOR RESULT (deprecated)
 ex. 
