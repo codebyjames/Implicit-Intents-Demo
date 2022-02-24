@@ -12,7 +12,9 @@ val intent = Intent(Intent.ACTION_GET_CONTENT)
 intent.type = "image/*"
 
 START ACTIVITY FOR RESULT (deprecated)
-ex. startActivityForResult(intent, REQUEST_CODE)
+ex. 
+```
+startActivityForResult(intent, REQUEST_CODE)
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -23,9 +25,12 @@ ex. startActivityForResult(intent, REQUEST_CODE)
             }
         }
     }
+ ```
 
 REGISTER FOR ACTIVITY RESULT
-ex. val startActivityNew = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+ex. 
+```
+val startActivityNew = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
                 val intent: Intent? = result.data
                 val data = intent?.data
@@ -36,7 +41,7 @@ ex. val startActivityNew = registerForActivityResult(ActivityResultContracts.Sta
      }
      
      startActivityNew.launch(intent)
-
+ ```
 
 ![alt text](https://github.com/codebyjames/Implicit-Intents-Demo/blob/main/shot_1.jpg)
 ![alt text](https://github.com/codebyjames/Implicit-Intents-Demo/blob/main/shot_2.jpg)
