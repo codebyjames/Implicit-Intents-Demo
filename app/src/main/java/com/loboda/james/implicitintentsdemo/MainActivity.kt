@@ -34,8 +34,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // new way of doing startActivityForResult
-        val startActivityNew = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        // current way of doing startActivityForResult
+        val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val intent: Intent? = result.data
                 val data = intent?.data
@@ -52,15 +52,21 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnTakePhoto.setOnClickListener {
             Intent(Intent.ACTION_GET_CONTENT).also {
-                // mime type any images -- image/jpg only looks for particular
+                // mime type (any) images
                 it.type = "image/*"
-//                startActivityForResult(it, REQUEST_CODE_PHOTO) // deprecated
-                startActivityNew.launch(it)
+                startForResult.launch(it)
+
+                // DEPRECATED: startActivityForResult(it, REQUEST_CODE_PHOTO)
+                // ... then override onActivityResult()
             }
         }
     }
 
-    // Deprecated way
+    private fun setImage(uri: Uri) {
+        binding.ivSelectedImage.setImageURI(uri)
+    }
+
+    // DEPRECATED WAY
 //    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 //        super.onActivityResult(requestCode, resultCode, data)
 //        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_PHOTO) {
@@ -70,8 +76,4 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 //    }
-
-    private fun setImage(uri: Uri) {
-        binding.ivSelectedImage.setImageURI(uri)
-    }
 }
