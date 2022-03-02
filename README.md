@@ -32,17 +32,17 @@ startActivityForResult(intent, REQUEST_CODE)
 REGISTER FOR ACTIVITY RESULT
 ex. 
 ```
-val startActivityNew = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
                 val intent: Intent? = result.data
                 val data = intent?.data
                 data?.let {
-                    // do whatever with the data
+                    // do whatever with the data (ex. saveImage(it))
                 }
          }
      }
      
-     startActivityNew.launch(intent)
+     startForResult.launch(intent)
  ```
 
 ![alt text](https://github.com/codebyjames/Implicit-Intents-Demo/blob/main/shot_1.jpg)
