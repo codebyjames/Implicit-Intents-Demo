@@ -47,9 +47,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-        intent.type = "image/*"
-
         binding.btnTakePhoto.setOnClickListener {
             Intent(Intent.ACTION_GET_CONTENT).also {
                 // mime type (any) images
